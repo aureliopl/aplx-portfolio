@@ -1,0 +1,33 @@
+{
+    "name": "aplx/site",
+    "description": "Site multilingue da APLX orientado a arquivos",
+    "type": "project",
+    "license": "proprietary",
+    "require": {
+        "php": "^8.3",
+        "ext-json": "*",
+        "ext-mbstring": "*",
+        "league/commonmark": "^2.10",
+        "symfony/yaml": "^7.4"
+    },
+    "autoload": {
+        "psr-4": {
+            "Aplx\\": "app/"
+        }
+    },
+    "config": {
+        "allow-plugins": {},
+        "optimize-autoloader": true,
+        "preferred-install": "dist",
+        "sort-packages": true
+    },
+    "scripts": {
+        "content:build": "php scripts/build-content-index.php",
+        "content:validate": "php scripts/validate-content.php",
+        "test": "php tests/run.php",
+        "check": [
+            "@content:validate",
+            "@test"
+        ]
+    }
+}
